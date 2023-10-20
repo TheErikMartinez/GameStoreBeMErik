@@ -6,9 +6,9 @@ namespace GameStoreBeMErik.Models
     {
 
         public int Id { get; set; }
-        [EmailAddress, MaxLength(150)]
+        [Required, EmailAddress, MaxLength(150)]
         public string Email { get; set; }
-        [MaxLength(255)]
+        [Required, MaxLength(255)]
         public string PasswordHash { get; set; }
 
     }

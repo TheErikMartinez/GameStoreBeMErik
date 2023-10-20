@@ -3,17 +3,18 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GameStoreBeMErik.Models
 {
-    public enum type { Akció, Kaland, Coop, Oktató, Túlélő }
+    public enum type { Akció = 1, Kaland, Coop, Oktató, Túlélő }
     public class VideoGame
     {
         public int Id { get; set; }
-        [MaxLength(100)]
+        [Required, MaxLength(100)]
         public string Title { get; set; }
-        [MaxLength(255)]
+        [Required, MaxLength(255)]
         public string Description { get; set; }
+        [EnumDataType(typeof(type))]
         public type Type { get; set; }
         public int Price { get; set; }
-        [Range(1, 5)]
+        [Required, Range(1, 5)]
         public int Rating { get; set; }
 
     }
