@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Azure;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace GameStoreBeMErik.Models
 {
@@ -10,6 +12,7 @@ namespace GameStoreBeMErik.Models
         public string Email { get; set; }
         [Required, MaxLength(255)]
         public string PasswordHash { get; set; }
+        public List<VideoGame> VideoGames { get; } = new();
 
     }
 }

@@ -1,8 +1,11 @@
-﻿using Microsoft.IdentityModel.Protocols.OpenIdConnect;
+﻿using Azure;
+using Microsoft.IdentityModel.Protocols.OpenIdConnect;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace GameStoreBeMErik.Models
 {
+    [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum type { Akció = 1, Kaland, Coop, Oktató, Túlélő }
     public class VideoGame
     {
@@ -16,6 +19,8 @@ namespace GameStoreBeMErik.Models
         public int Price { get; set; }
         [Required, Range(1, 5)]
         public int Rating { get; set; }
+        [JsonIgnore]
+        public List<User> Users { get; } = new();
 
     }
 }
